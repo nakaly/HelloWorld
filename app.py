@@ -12,11 +12,10 @@ bottle.debug(True)
 
 @get('/')
 def index():
-    '''
     response.content_type = 'text/plain; charset=utf-8'
     ret =  'Hello world, I\'m %s!\n\n' % os.getpid()
     ret += 'Request vars:\n'
-    for k, v in request.environ.iteritems():
+    for k, v in request.environ.items():
         if 'bottle.' in k:
             continue
         ret += '%s=%s\n' % (k, v)
@@ -24,12 +23,11 @@ def index():
     ret += '\n'
     ret += 'Environment vars:\n'
 
-    for k, v in env.iteritems():
+    for k, v in env.items():
         if 'bottle.' in k:
             continue
         ret += '%s=%s\n' % (k, v)
-    '''
 
-    return str(request.environ)
+    return ret
 
 bottle.run(host='0.0.0.0', port=argv[1])
