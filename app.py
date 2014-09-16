@@ -30,6 +30,6 @@ def index():
         ret += '%s=%s\n' % (k, v)
     '''
 
-    return request.environ
+    return str(request.environ)
 
 bottle.run(host='0.0.0.0', port=argv[1])
