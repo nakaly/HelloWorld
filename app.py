@@ -12,6 +12,7 @@ bottle.debug(True)
 
 @get('/')
 def index():
+    '''
     response.content_type = 'text/plain; charset=utf-8'
     ret =  'Hello world, I\'m %s!\n\n' % os.getpid()
     ret += 'Request vars:\n'
@@ -27,7 +28,8 @@ def index():
         if 'bottle.' in k:
             continue
         ret += '%s=%s\n' % (k, v)
+    '''
 
-    return ret
+    return request.environ
 
 bottle.run(host='0.0.0.0', port=argv[1])
